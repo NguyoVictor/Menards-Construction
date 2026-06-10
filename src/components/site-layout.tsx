@@ -30,7 +30,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="fixed inset-x-0 top-0 z-50"
     >
-      <nav className={`container-x mx-auto flex max-w-[1440px] items-center justify-between transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}>
+      <nav className={`mx-auto flex max-w-[1440px] items-center justify-between px-5 transition-all duration-300 md:px-10 lg:px-16 ${scrolled ? "py-4" : "py-6"}`}>
         <Link to="/" className="flex items-center gap-3">
           <img
             src={menardsIcon.url}
