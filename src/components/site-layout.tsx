@@ -169,9 +169,8 @@ export function Footer() {
         <div className="col-span-6 md:col-span-2">
           <h5 className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em]">Resources</h5>
           <ul className="space-y-3 text-sm text-white/60">
-            <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-white">Terms of Service</a></li>
-            <li><a href="#" className="hover:text-white">Careers</a></li>
+            <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="hover:text-white">Terms of Service</Link></li>
           </ul>
         </div>
         <div className="col-span-12 md:col-span-4">
