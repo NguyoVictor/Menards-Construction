@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring, animate, useInView, AnimatePresence } from "motion/react";
-import { useEffect, useRef, useState, type ReactNode, type CSSProperties, type ComponentProps } from "react";
+import { useEffect, useRef, useState, type ReactNode, type ComponentProps, type ElementType } from "react";
 
 /* =========================
    SplitText — letter-by-letter
@@ -7,13 +7,13 @@ import { useEffect, useRef, useState, type ReactNode, type CSSProperties, type C
 export function SplitText({
   text,
   className = "",
-  as: Tag = "span",
+  as: Tag = "span" as ElementType,
   delay = 0,
   stagger = 0.04,
 }: {
   text: string;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   delay?: number;
   stagger?: number;
 }) {
@@ -50,11 +50,11 @@ export function SplitText({
 export function BlurText({
   text,
   className = "",
-  as: Tag = "h2",
+  as: Tag = "h2" as ElementType,
 }: {
   text: ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
 }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
