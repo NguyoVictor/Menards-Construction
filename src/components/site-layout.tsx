@@ -18,18 +18,6 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 50));
 
-  const dark = scrolled || !overlay;
-
-  return (
-    <motion.header
-      initial={false}
-      animate={{
-        backgroundColor: scrolled ? "rgba(17,17,17,0.92)" : overlay ? "rgba(17,17,17,0)" : "rgba(252,249,245,0.9)",
-        backdropFilter: scrolled ? "blur(14px)" : "blur(0px)",
-      }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="fixed inset-x-0 top-0 z-50"
-    >
   const dark = scrolled || overlay;
 
   return (
