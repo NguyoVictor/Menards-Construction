@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { BlurText, Reveal, Stagger, StaggerItem, CountUp, SpotlightCard } from "@/components/anim";
 import { CtaBanner } from "./index";
+import simonImg from "@/assets/simon-migwi.jpg.asset.json";
+import chrisImg from "@/assets/chris-emmanuel.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -21,10 +23,8 @@ const values = [
 ];
 
 const team = [
-  { n: "Simon Migwi", r: "Managing Director", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" },
-  { n: "Chris Emmanuel", r: "Chief Architect", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" },
-  { n: "Aisha Nyong'o", r: "Head of Engineering", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" },
-  { n: "David Otieno", r: "Project Director", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80" },
+  { n: "Simon Migwi", r: "Quantity Surveyor & Project Manager", b: "With over years in construction, Simon founded the company with a vision of excellence.", img: simonImg.url },
+  { n: "Chris Emmanuel", r: "Architect", b: "With a strong architectural background, Chris Emmanuel brings design precision and innovation to every Menards Construction project.", img: chrisImg.url },
 ];
 
 function About() {
@@ -132,7 +132,7 @@ function About() {
       <section className="section-pad bg-[color:var(--surface-low)]">
         <div className="container-x mx-auto max-w-[1440px]">
           <BlurText className="mb-16 text-4xl font-black md:text-6xl" text="Leadership" />
-          <Stagger className="grid grid-cols-1 gap-12 md:grid-cols-4">
+          <Stagger className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {team.map((m, i) => (
               <StaggerItem key={i}>
                 <div className="group cursor-pointer">
@@ -141,6 +141,7 @@ function About() {
                   </div>
                   <h4 className="mt-6 text-xl font-black">{m.n}</h4>
                   <p className="text-sm text-[color:var(--secondary)]">{m.r}</p>
+                  <p className="mt-3 text-sm text-[color:var(--secondary)]">{m.b}</p>
                 </div>
               </StaggerItem>
             ))}
