@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { BlurText, Reveal, Stagger, StaggerItem, CountUp, SpotlightCard } from "@/components/anim";
 import { CtaBanner } from "./index";
+import simonImg from "@/assets/simon-migwi.jpg.asset.json";
+import chrisImg from "@/assets/chris-emmanuel.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
