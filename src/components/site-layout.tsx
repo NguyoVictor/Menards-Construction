@@ -137,14 +137,14 @@ export function Footer() {
             Crafting architectural landmarks through precision engineering and artistic soul.
           </p>
           <div className="mt-8 flex gap-5">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-white/60 transition-transform hover:-translate-y-1 hover:text-white">
+            <a href="https://www.instagram.com/menardsconstruction/" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-white/60 transition-transform hover:-translate-y-1 hover:text-white">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
               </svg>
             </a>
-            <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok" className="text-white/60 transition-transform hover:-translate-y-1 hover:text-white">
+            <a href="https://www.tiktok.com/@menards_construction" target="_blank" rel="noreferrer" aria-label="TikTok" className="text-white/60 transition-transform hover:-translate-y-1 hover:text-white">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M16.5 3h-2.7v12.1a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.8a5.4 5.4 0 1 0 4.5 5.3V8.6a6.8 6.8 0 0 0 4 1.3V7.2a4.1 4.1 0 0 1-4-4.2z" />
               </svg>
