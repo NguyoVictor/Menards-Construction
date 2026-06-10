@@ -130,7 +130,10 @@ export function Footer() {
       <div className="container-x mx-auto grid max-w-[1440px] grid-cols-12 gap-6">
         <div className="col-span-12 md:col-span-4">
           <div className="mb-6 flex flex-col">
-            <span className="text-base font-black uppercase tracking-[0.2em]">MENARDS</span>
+            <div className="flex items-center gap-2">
+              <img src={menardsIcon.url} alt="Menards icon" className="h-6 w-6 object-contain brightness-0 invert" />
+              <span className="text-base font-black uppercase tracking-[0.2em]">MENARDS</span>
+            </div>
             <span className="mt-1 text-xs text-white/60">Building Dreams, Brick At A Time.</span>
           </div>
           <p className="max-w-xs text-sm text-white/60">
