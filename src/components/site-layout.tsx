@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "motion/react";
 import { useState, type ReactNode } from "react";
 import { MagneticButton, Aurora, Reveal } from "./anim";
+import menardsIcon from "@/assets/menards-icon.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -17,7 +18,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 50));
 
-  const dark = scrolled || !overlay;
+  const dark = scrolled || overlay;
 
   return (
     <motion.header
@@ -31,6 +32,12 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
     >
       <nav className={`container-x mx-auto flex max-w-[1440px] items-center justify-between transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}>
         <Link to="/" className="flex items-center gap-3">
+          <img
+            src={menardsIcon.url}
+            alt="Menards"
+            className="h-9 w-9 object-contain transition-[filter] duration-300"
+            style={{ filter: dark ? "none" : "invert(1) brightness(0)" }}
+          />
           <span
             className={`font-display text-xl font-black tracking-[0.18em] transition-colors ${
               dark ? "text-white" : "text-[color:var(--primary)]"
@@ -130,11 +137,18 @@ export function Footer() {
             Crafting architectural landmarks through precision engineering and artistic soul.
           </p>
           <div className="mt-8 flex gap-5">
-            {["photo_camera", "video_library", "alternate_email"].map((i) => (
-              <a key={i} href="#" className="text-white/60 transition-transform hover:-translate-y-1 hover:text-white">
-                <span className="material-symbols-outlined">{i}</span>
-              </a>
-            ))}
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-white/60 transition-transform hover:-translate-y-1 hover:text-white">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok" className="text-white/60 transition-transform hover:-translate-y-1 hover:text-white">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16.5 3h-2.7v12.1a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.8a5.4 5.4 0 1 0 4.5 5.3V8.6a6.8 6.8 0 0 0 4 1.3V7.2a4.1 4.1 0 0 1-4-4.2z" />
+              </svg>
+            </a>
           </div>
         </div>
         <div className="col-span-6 md:col-span-2">
