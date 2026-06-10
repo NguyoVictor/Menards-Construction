@@ -132,7 +132,7 @@ function About() {
       <section className="section-pad bg-[color:var(--surface-low)]">
         <div className="container-x mx-auto max-w-[1440px]">
           <BlurText className="mb-16 text-4xl font-black md:text-6xl" text="Leadership" />
-          <Stagger className="grid grid-cols-1 gap-12 md:grid-cols-4">
+          <Stagger className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {team.map((m, i) => (
               <StaggerItem key={i}>
                 <div className="group cursor-pointer">
@@ -141,6 +141,7 @@ function About() {
                   </div>
                   <h4 className="mt-6 text-xl font-black">{m.n}</h4>
                   <p className="text-sm text-[color:var(--secondary)]">{m.r}</p>
+                  <p className="mt-3 text-sm text-[color:var(--secondary)]">{m.b}</p>
                 </div>
               </StaggerItem>
             ))}
