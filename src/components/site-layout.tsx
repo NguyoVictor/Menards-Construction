@@ -108,7 +108,7 @@ function NavLink({ to, children, dark }: { to: string; children: ReactNode; dark
   return (
     <Link
       to={to}
-      className={`relative text-[11px] uppercase tracking-[0.25em] transition-colors ${
+      className={`relative text-[10px] uppercase tracking-[0.18em] transition-colors lg:text-[11px] lg:tracking-[0.22em] ${
         dark ? (active ? "text-white" : "text-white/60 hover:text-white") : active ? "text-[color:var(--primary)]" : "text-[color:var(--secondary)] hover:text-[color:var(--primary)]"
       }`}
     >
