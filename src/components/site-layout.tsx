@@ -30,7 +30,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="fixed inset-x-0 top-0 z-50"
     >
-      <nav className={`container-x mx-auto flex max-w-[1440px] items-center justify-between transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}>
+      <nav className={`mx-auto flex max-w-[1440px] items-center justify-between px-5 transition-all duration-300 md:px-10 lg:px-16 ${scrolled ? "py-4" : "py-6"}`}>
         <Link to="/" className="flex items-center gap-3">
           <img
             src={menardsIcon.url}
@@ -47,7 +47,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-10 md:flex">
+        <div className="hidden items-center gap-7 md:flex lg:gap-10">
           {links.map((l) => (
             <NavLink key={l.to} to={l.to} dark={dark}>
               {l.label}
@@ -55,9 +55,9 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <MagneticButton
-            className={`hidden rounded-full px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors md:inline-flex ${
+            className={`hidden whitespace-nowrap rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors md:inline-flex ${
               dark
                 ? "bg-[color:var(--gold)] text-white hover:bg-white hover:text-[color:var(--primary)]"
                 : "bg-[color:var(--primary)] text-white hover:bg-[color:var(--gold)]"
@@ -108,7 +108,7 @@ function NavLink({ to, children, dark }: { to: string; children: ReactNode; dark
   return (
     <Link
       to={to}
-      className={`relative text-[11px] uppercase tracking-[0.25em] transition-colors ${
+      className={`relative text-[10px] uppercase tracking-[0.18em] transition-colors lg:text-[11px] lg:tracking-[0.22em] ${
         dark ? (active ? "text-white" : "text-white/60 hover:text-white") : active ? "text-[color:var(--primary)]" : "text-[color:var(--secondary)] hover:text-[color:var(--primary)]"
       }`}
     >
