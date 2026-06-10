@@ -30,8 +30,26 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="fixed inset-x-0 top-0 z-50"
     >
+  const dark = scrolled || overlay;
+
+  return (
+    <motion.header
+      initial={false}
+      animate={{
+        backgroundColor: scrolled ? "rgba(17,17,17,0.92)" : overlay ? "rgba(17,17,17,0)" : "rgba(252,249,245,0.9)",
+        backdropFilter: scrolled ? "blur(14px)" : "blur(0px)",
+      }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="fixed inset-x-0 top-0 z-50"
+    >
       <nav className={`container-x mx-auto flex max-w-[1440px] items-center justify-between transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}>
         <Link to="/" className="flex items-center gap-3">
+          <img
+            src={menardsIcon.url}
+            alt="Menards"
+            className="h-9 w-9 object-contain transition-[filter] duration-300"
+            style={{ filter: dark ? "none" : "invert(1) brightness(0)" }}
+          />
           <span
             className={`font-display text-xl font-black tracking-[0.18em] transition-colors ${
               dark ? "text-white" : "text-[color:var(--primary)]"
