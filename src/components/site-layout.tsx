@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "motion/react";
 import { useState, type ReactNode } from "react";
 import { MagneticButton, Aurora, Reveal } from "./anim";
+import menardsIcon from "@/assets/menards-icon.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
