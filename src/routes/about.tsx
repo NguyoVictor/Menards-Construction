@@ -23,10 +23,8 @@ const values = [
 ];
 
 const team = [
-  { n: "Simon Migwi", r: "Managing Director", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" },
-  { n: "Chris Emmanuel", r: "Chief Architect", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" },
-  { n: "Aisha Nyong'o", r: "Head of Engineering", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" },
-  { n: "David Otieno", r: "Project Director", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80" },
+  { n: "Simon Migwi", r: "Quantity Surveyor & Project Manager", b: "With over years in construction, Simon founded the company with a vision of excellence.", img: simonImg.url },
+  { n: "Chris Emmanuel", r: "Architect", b: "With a strong architectural background, Chris Emmanuel brings design precision and innovation to every Menards Construction project.", img: chrisImg.url },
 ];
 
 function About() {
