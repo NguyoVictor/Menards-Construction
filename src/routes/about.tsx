@@ -55,7 +55,7 @@ function About() {
         <div className="col-span-12 md:col-span-6 md:col-start-7">
           <Reveal>
             <p className="text-lg text-[color:var(--secondary)]">
-              Founded on the conviction that architecture should outlast trends, Menards is an East African construction studio focused on precision delivery. We design and build commercial, residential and infrastructure projects with a single bar: craft that compounds.
+              We build landmark structures across commercial, residential, and infrastructure sectors. Trusted by clients nationwide for quality, precision, and on-time delivery.
             </p>
           </Reveal>
         </div>
@@ -100,13 +100,13 @@ function About() {
           <Reveal>
             <h3 className="mb-6 text-3xl font-black">Our Vision</h3>
             <p className="text-lg text-[color:var(--secondary)]">
-              To be the most trusted name in East African construction, defined by buildings that the next generation still admires.
+              To be the premier construction partner for the global diaspora, recognized for transforming remote visions into tangible landmarks through precision, reliability, and world-class craftsmanship.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
             <h3 className="mb-6 text-3xl font-black">Our Mission</h3>
             <p className="text-lg text-[color:var(--secondary)]">
-              Deliver every project on time, on budget, and at a finish that lets the client be proud of the seam, the surface, and the silhouette.
+              At Menards Construction and Contractors, we bridge the distance by delivering high-quality construction projects that strictly adhere to our clients' briefs. We are committed to timely delivery and unwavering reliability, ensuring that every diaspora client can invest in their home country with absolute confidence and pride.
             </p>
           </Reveal>
         </div>
