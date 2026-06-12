@@ -1,9 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { BlurText, Reveal, MagneticButton, SpotlightCard } from "@/components/anim";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 
 const SITE_URL = "https://menardsconstruction.com";
 const CONTACT_OG_IMG = "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&q=80";
+
+const SERVICE_ID = "service_shysmdj";
+const TEMPLATE_ID = "template_azpfcst";
+const PUBLIC_KEY = "3PEnEC8ZOEKB_9aS8";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -27,8 +33,24 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-
 function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    setStatus("sending");
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
+      setStatus("success");
+      formRef.current.reset();
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
+  };
+
   return (
     <SiteLayout>
       <section className="container-x mx-auto max-w-[1440px] pb-24 pt-40">
@@ -61,34 +83,36 @@ function Contact() {
                 <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--primary)]">Phone</div>
                 <p className="mt-2">+254 710 792 208</p>
               </div>
-              <div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--primary)]">{"\n"}</div>
-                <p className="mt-2">{"\n"}</p>
-              </div>
             </div>
           </Reveal>
         </div>
 
         <SpotlightCard className="md:col-span-7 border border-[color:var(--outline)] p-10">
           <form
+            ref={formRef}
             className="grid grid-cols-1 gap-6 md:grid-cols-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thanks — we'll be in touch.");
-            }}
+            onSubmit={handleSubmit}
           >
-            <Field label="Name" name="name" />
-            <Field label="Email" name="email" type="email" />
+            <Field label="Name" name="from_name" />
+            <Field label="Email" name="from_email" type="email" />
             <Field label="Company" name="company" className="md:col-span-2" />
-            <Field label="Project type" name="type" className="md:col-span-2" />
+            <Field label="Project Type" name="project_type" className="md:col-span-2" />
             <Field label="Message" name="message" textarea className="md:col-span-2" />
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 flex flex-col gap-3">
               <MagneticButton
                 type="submit"
-                className="inline-flex items-center gap-3 rounded-full bg-[color:var(--primary)] px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white hover:bg-[color:var(--gold)]"
+                disabled={status === "sending"}
+                className="inline-flex items-center gap-3 rounded-full bg-[color:var(--primary)] px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white hover:bg-[color:var(--gold)] disabled:opacity-50"
               >
-                Send Inquiry <span className="material-symbols-outlined" style={{ fontSize: 18 }}>east</span>
+                {status === "sending" ? "Sending..." : "Send Inquiry"}
+                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>east</span>
               </MagneticButton>
+              {status === "success" && (
+                <p className="text-sm text-green-600 font-medium">Message sent successfully. We will be in touch shortly.</p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-red-500 font-medium">Something went wrong. Please try again or email us directly.</p>
+              )}
             </div>
           </form>
         </SpotlightCard>

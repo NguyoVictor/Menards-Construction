@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useScroll, useTransform, motion } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import {
   SplitText,
@@ -26,14 +26,14 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Menards Construction is a premier construction company in Nairobi, Kenya delivering commercial, residential and infrastructure projects with precision." },
       { name: "keywords", content: "construction company Nairobi, Kenya construction, commercial construction, residential construction, infrastructure, building contractor Kenya, Menards Construction" },
       { property: "og:title", content: "Menards Construction | Construction Company in Nairobi, Kenya" },
-      { property: "og:description", content: "Premier construction company in Nairobi, Kenya — commercial, residential and infrastructure projects, built with precision and integrity." },
+      { property: "og:description", content: "Premier construction company in Nairobi, Kenya, commercial, residential and infrastructure projects, built with precision and integrity." },
       { property: "og:image", content: HOME_OG_IMG },
       { property: "og:url", content: SITE_URL + "/" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Menards Construction" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Menards Construction | Construction Company in Nairobi, Kenya" },
-      { name: "twitter:description", content: "Premier construction company in Nairobi, Kenya — commercial, residential and infrastructure projects." },
+      { name: "twitter:description", content: "Premier construction company in Nairobi, Kenya, commercial, residential and infrastructure projects." },
       { name: "twitter:image", content: HOME_OG_IMG },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/" }],
@@ -67,8 +67,6 @@ export const Route = createFileRoute("/")({
 });
 
 const HERO_IMG = HOME_OG_IMG;
-
-
 const ABOUT_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuBgwiz4ln9vPcYufOv-jRwaK3bK0r76vww6Afje6N3s0X3Q8k0t1cW94Yh40BNy4QcLu4uInYDt4vOV9mqYyoD1ig1s2r2jNF4k6aoNhBks6xi6q8Z7MfWtot9KcSoOp0Ly6uBljrS57Hh_UitkL84p89_8v9wv6hE8lBZrGZeUPi4koXDuqrsmbhQkZPZNgpgNINFD6kl6xTemUfDpW5-vIrpPbiZz0pwywn32at55SKaImd05hgfGmbmHhYmeXfeojP7zoVzvvq2T";
 
 const services = [
@@ -80,18 +78,98 @@ const services = [
   { n: "06", t: "Design", d: "Conceptual blueprints that challenge conventions and prioritize aesthetics.", i: "palette" },
 ];
 
-const projects = [
-  { t: "The Linear Residence", c: "Residential · 2024", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDhaSLRPpAaE38BjjEVZY6riYoLNpRWRYjpnxY_d0W-frfirAjzIlDqRJS7xpjnKlNkRpjjcFVtCmyw_JCi0SReEz6i2mHIsZ8YQ6qbzuQaURkQYQkE1zTdHHjQXZ3IDNi2FR2RnfoSL69SnB7hWffXPdHux7gfxsCJ5oSZmjrVGT4VDoIhld8CBfgxnVy9nh4sA8b0TKYsKZmvySs10Hpf22x_nqpsELD-He_gJEtrah9wgSBgCrDWc-l7OXq-Hajq18zY37o9r0YZ" },
-  { t: "Prism Corporate Hub", c: "Commercial · 2023", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80" },
-  { t: "The Monolith Library", c: "Public · 2023", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80" },
-  { t: "Nova Workspace Atrium", c: "Commercial · 2024", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=80" },
+type BeforeAfterProject = {
+  t: string;
+  c: string;
+  isBeforeAfter: true;
+  before: string;
+  after: string;
+};
+
+type RegularProject = {
+  t: string;
+  c: string;
+  isBeforeAfter?: false;
+  img: string;
+};
+
+type Project = BeforeAfterProject | RegularProject;
+
+const projects: Project[] = [
+  {
+    t: "Chaka Villa",
+    c: "Residential · 2023",
+    isBeforeAfter: true,
+    before: "/media/chaka-villa-before.jpg",
+    after: "/media/chaka-villa-after.jpg",
+  },
+  {
+    t: "Perfume Alchemy",
+    c: "Commercial · 2023",
+    isBeforeAfter: true,
+    before: "/media/perfume-alchemy-before.jpeg",
+    after: "/media/perfume-alchemy-after.jpeg",
+  },
 ];
 
-const testimonials = [
-  { q: "Menards construction exceeded our expectations in every way. Their attention to detail and commitment to quality, made Perfume Alchemy an achievement for us.", n: "Anonymous", r: "Perfume Alchemy", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCLnX9CRykPNyEogWPGekOCKLU0BTQB0bzWxvFRPi9SKwsMP1Ot-1k7P5KhI1KFBwQa2mlOpJrZ-DQu_iY4cP2u8Yvqsi9pjk5Bvr1OZWaB7Z2mZ8r2tCBzWtbsmFNmKMI3PWtJfDMpgPzc1pjzs2_jWdMC8wMUYkj_8rH7yfPi9hkM" },
-  { q: "Working with Menards was a seamless experience. They delivered our project on time and with budget, without compromising on quality.", n: "Anonymous", r: "Chaka Villa Client", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDEBAmqt7jVlWwpUsvw5hFn9Ln0sbnbr_k13jlFM5v0JCJw_NoOaXWiBR3MPj8Fmd8AorPMJWW4N4dbkLfwpG4iZ9u1rbfgeYgskt05SJNYS2FlziP-Pci9MCGoaJgVrDRZ9rzFkXobceTQc2bPHtVHMujPU0wsasb4DD0SnMC4rAiMUIIPP6hI12aXMIH-wlrcx06_8cgNqjrCsFhnrP1tf7e8ln94-Pp1LKPqnMJjRHG1dNdqdgNIIBtKPHcWw-0-Acf-14BUbqg8" },
-  { q: "The Menards team's consultation professionalism is exceptional. Their expert guidance helped us shape our vision into precise and achievable plan ", n: "Anonymous", r: "Client", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDIRpdOP7CbU94YQNuNIFoaH33rTakiMgMmpXdivI1aCU18v5_-a1M1grG8B1X1Py3yxYKieW2v1MXcRGRYs_K2SRwGpzIw2mtdQsEB02_rulYhygqUAVPO-lL-KGwsMAYqF5mEx-EK_NG4YC5XKA_hUedHjQ-KMsmPLK3ZuEwgxhtpQ9ZSlBEIw6-70Um5ZQWMVRTyU9I7jpop8Err_hNhxXDN8vNZbr0xqw2AZSujNdKVOb5A9p3OYyHEXF4MdGTdq9s8qq1rLHMf" },
+const testimonialCards = [
+  { q: "Menards construction exceeded our expectations in every way. Their attention to detail and commitment to quality, made Perfume Alchemy an achievement for us.", n: "Anonymous", r: "Perfume Alchemy" },
+  { q: "Working with Menards was a seamless experience. They delivered our project on time and within budget, without compromising on quality.", n: "Anonymous", r: "Chaka Villa Client" },
+  { q: "The Menards team's consultation professionalism is exceptional. Their expert guidance helped us shape our vision into a precise and achievable plan.", n: "Anonymous", r: "Client" },
+  { q: "Menards construction exceeded our expectations in every way. Their attention to detail and commitment to quality, made Perfume Alchemy an achievement for us.", n: "Anonymous", r: "Perfume Alchemy" },
+  { q: "Working with Menards was a seamless experience. They delivered our project on time and within budget, without compromising on quality.", n: "Anonymous", r: "Chaka Villa Client" },
+  { q: "The Menards team's consultation professionalism is exceptional. Their expert guidance helped us shape our vision into a precise and achievable plan.", n: "Anonymous", r: "Client" },
 ];
+
+function BeforeAfterSlider({ before, after, alt }: { before: string; after: string; alt: string }) {
+  const [position, setPosition] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+
+  const updatePosition = (clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setPosition((x / rect.width) * 100);
+  };
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    isDragging.current = true;
+  };
+  const onMouseUp = () => { isDragging.current = false; };
+  const onMouseMove = (e: React.MouseEvent) => { if (isDragging.current) updatePosition(e.clientX); };
+  const onTouchMove = (e: React.TouchEvent) => { updatePosition(e.touches[0].clientX); };
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative aspect-[16/10] cursor-col-resize overflow-hidden select-none"
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+      onMouseMove={onMouseMove}
+      onTouchMove={onTouchMove}
+    >
+      <img src={after} alt={`${alt} after`} className="absolute inset-0 h-full w-full object-cover" />
+      <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
+        <img
+          src={before}
+          alt={`${alt} before`}
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ width: containerRef.current ? containerRef.current.offsetWidth + "px" : "100%" }}
+        />
+      </div>
+      <div className="absolute inset-y-0 z-10 w-0.5 bg-white shadow-lg" style={{ left: `${position}%` }}>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-xl">
+          <span className="material-symbols-outlined text-[color:var(--primary)]" style={{ fontSize: 20 }}>swap_horiz</span>
+        </div>
+      </div>
+      <div className="absolute bottom-4 left-4 z-10 rounded bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Before</div>
+      <div className="absolute bottom-4 right-4 z-10 rounded bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">After</div>
+    </div>
+  );
+}
 
 function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -121,12 +199,16 @@ function Hero() {
           </Reveal>
           <Reveal delay={1.3}>
             <div className="mt-12 flex flex-col gap-4 md:flex-row">
-              <MagneticButton className="inline-flex items-center gap-3 rounded-full bg-[color:var(--gold)] px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
-                View Our Work <span className="material-symbols-outlined" style={{ fontSize: 18 }}>east</span>
-              </MagneticButton>
-              <MagneticButton className="inline-flex items-center gap-3 rounded-full border border-white/80 bg-transparent px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white hover:text-[color:var(--primary)]">
-                Get In Touch
-              </MagneticButton>
+              <Link to="/projects">
+                <MagneticButton className="inline-flex items-center gap-3 rounded-full bg-[color:var(--gold)] px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+                  View Our Work <span className="material-symbols-outlined" style={{ fontSize: 18 }}>east</span>
+                </MagneticButton>
+              </Link>
+              <Link to="/contact">
+                <MagneticButton className="inline-flex items-center gap-3 rounded-full border border-white/80 bg-transparent px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white hover:text-[color:var(--primary)]">
+                  Get In Touch
+                </MagneticButton>
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -257,18 +339,24 @@ function ProjectsPreview() {
       <Stagger className="grid grid-cols-1 gap-12 md:grid-cols-2">
         {projects.map((p, i) => (
           <StaggerItem key={i}>
-            <TiltCard className="group cursor-pointer">
-              <div className="aspect-[16/10] overflow-hidden bg-[color:var(--surface-high)]">
-                <img src={p.img} alt={p.t} className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              </div>
-              <div className="mt-6 flex items-end justify-between">
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--gold)]">{p.c}</span>
-                  <h3 className="mt-2 text-2xl font-black">{p.t}</h3>
+            <Link to="/projects">
+              <TiltCard className="group cursor-pointer">
+                {p.isBeforeAfter ? (
+                  <BeforeAfterSlider before={p.before} after={p.after} alt={p.t} />
+                ) : (
+                  <div className="aspect-[16/10] overflow-hidden bg-[color:var(--surface-high)]">
+                    <img src={p.img} alt={p.t} className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  </div>
+                )}
+                <div className="mt-6 flex items-end justify-between">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--gold)]">{p.c}</span>
+                    <h3 className="mt-2 text-2xl font-black">{p.t}</h3>
+                  </div>
+                  <span className="material-symbols-outlined transition-transform group-hover:rotate-45" style={{ fontSize: 24 }}>north_east</span>
                 </div>
-                <span className="material-symbols-outlined transition-transform group-hover:rotate-45" style={{ fontSize: 24 }}>north_east</span>
-              </div>
-            </TiltCard>
+              </TiltCard>
+            </Link>
           </StaggerItem>
         ))}
       </Stagger>
@@ -278,30 +366,61 @@ function ProjectsPreview() {
 
 function Testimonials() {
   return (
-    <section className="section-pad bg-[color:var(--surface-low)]">
-      <div className="container-x mx-auto max-w-[1440px]">
+    <section className="section-pad overflow-hidden bg-[color:var(--primary)] py-24">
+      <div className="container-x mx-auto max-w-[1440px] mb-16">
         <Reveal>
-          <span className="mb-16 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--secondary)]">
+          <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
             <span className="h-2 w-2 rounded-full bg-[color:var(--gold)]" /> TESTIMONIALS
           </span>
         </Reveal>
-        <Stagger className="grid grid-cols-1 gap-px bg-[color:var(--outline)] md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <StaggerItem key={i} className="flex h-full flex-col justify-between bg-[color:var(--background)] p-12">
-              <div>
-                <span className="material-symbols-outlined mb-8 text-[color:var(--gold)]" style={{ fontSize: 40 }}>format_quote</span>
-                <p className="mb-12 text-lg italic leading-relaxed text-[color:var(--foreground)]/80">"{t.q}"</p>
+        <BlurText
+          className="mt-4 text-4xl font-black text-white md:text-6xl"
+          text={
+            <>
+              What Our <span className="font-accent italic font-normal text-[color:var(--gold)]">Clients Say</span>
+            </>
+          }
+        />
+      </div>
+
+      {/* Marquee track */}
+      <div className="relative">
+        {/* Left fade */}
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-[color:var(--primary)] to-transparent" />
+        {/* Right fade */}
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-[color:var(--primary)] to-transparent" />
+
+        <motion.div
+          className="flex gap-6"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{ width: "max-content" }}
+        >
+          {testimonialCards.map((t, i) => (
+            <div
+              key={i}
+              className="w-[380px] flex-shrink-0 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
+            >
+              <span
+                className="material-symbols-outlined mb-6 block text-[color:var(--gold)]"
+                style={{ fontSize: 32 }}
+              >
+                format_quote
+              </span>
+              <p className="mb-8 text-base italic leading-relaxed text-white/80">
+                "{t.q}"
+              </p>
+              <div className="border-t border-white/10 pt-6">
+                <span className="block text-sm font-black text-white">{t.n}</span>
+                <span className="text-xs text-[color:var(--gold)]">{t.r}</span>
               </div>
-              <div className="flex items-center gap-4">
-                <img src={t.img} alt={t.n} className="h-12 w-12 rounded-full object-cover" />
-                <div>
-                  <span className="block text-sm font-bold">{t.n}</span>
-                  <span className="text-xs text-[color:var(--secondary)]">{t.r}</span>
-                </div>
-              </div>
-            </StaggerItem>
+            </div>
           ))}
-        </Stagger>
+        </motion.div>
       </div>
     </section>
   );
@@ -323,12 +442,16 @@ export function CtaBanner({ title, subtitle, accent }: { title: string; subtitle
         />
         {subtitle && <p className="mx-auto mt-8 max-w-xl text-white/70">{subtitle}</p>}
         <div className="mt-12 flex flex-col justify-center gap-4 md:flex-row">
-          <MagneticButton className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--gold)] px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
-            Start a Project <span className="material-symbols-outlined" style={{ fontSize: 18 }}>east</span>
-          </MagneticButton>
-          <MagneticButton className="inline-flex items-center justify-center gap-2 rounded-full border border-white px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-[color:var(--primary)]">
-            View Our Work
-          </MagneticButton>
+          <Link to="/contact">
+            <MagneticButton className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--gold)] px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+              Start a Project <span className="material-symbols-outlined" style={{ fontSize: 18 }}>east</span>
+            </MagneticButton>
+          </Link>
+          <Link to="/projects">
+            <MagneticButton className="inline-flex items-center justify-center gap-2 rounded-full border border-white px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-[color:var(--primary)]">
+              View Our Work
+            </MagneticButton>
+          </Link>
         </div>
       </div>
     </section>

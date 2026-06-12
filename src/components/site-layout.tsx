@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "motion/react";
 import { useState, type ReactNode } from "react";
 import { MagneticButton, Aurora, Reveal } from "./anim";
-import menardsIcon from "@/assets/menards-icon.png.asset.json";
+import menardsIcon from "@/assets/menards-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -33,7 +33,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
       <nav className={`mx-auto flex max-w-[1440px] items-center justify-between px-5 transition-all duration-300 md:px-10 lg:px-16 ${scrolled ? "py-4" : "py-6"}`}>
         <Link to="/" className="flex items-center gap-3">
           <img
-            src={menardsIcon.url}
+            src={menardsIcon}
             alt="Menards"
             className="h-9 w-9 object-contain transition-[filter] duration-300"
             style={{ filter: dark ? "none" : "invert(1) brightness(0)" }}
@@ -56,6 +56,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
         </div>
 
         <div className="flex items-center gap-3">
+        <Link to="/contact">
           <MagneticButton
             className={`hidden whitespace-nowrap rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors md:inline-flex ${
               dark
@@ -65,6 +66,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
           >
             Get a Quote
           </MagneticButton>
+          </Link>
           <button
             className={`md:hidden ${dark ? "text-white" : "text-[color:var(--primary)]"}`}
             onClick={() => setOpen((s) => !s)}
@@ -131,7 +133,7 @@ export function Footer() {
         <div className="col-span-12 md:col-span-4">
           <div className="mb-6 flex flex-col">
             <div className="flex items-center gap-2">
-              <img src={menardsIcon.url} alt="Menards icon" className="h-6 w-6 object-contain brightness-0 invert" />
+              <img src={menardsIcon} alt="Menards icon" className="h-6 w-6 object-contain brightness-0 invert" />
               <span className="text-base font-black uppercase tracking-[0.2em]">MENARDS</span>
             </div>
             <span className="mt-1 text-xs text-white/60">Building Dreams, Brick At A Time.</span>

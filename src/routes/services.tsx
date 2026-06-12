@@ -30,13 +30,13 @@ export const Route = createFileRoute("/services")({
 
 
 const services = [
-  { t: "Architectural Design", d: "Conceptual through construction documentation with a relentless focus on materiality.", i: "draw" },
-  { t: "Structural Engineering", d: "Performance-driven engineering for residential, commercial and infrastructure.", i: "engineering" },
-  { t: "Project Management", d: "Single-point delivery — schedule, cost, scope and quality, owned end to end.", i: "assignment" },
-  { t: "Interior Design", d: "Spaces that feel as considered as they look — bespoke, durable, beautiful.", i: "weekend" },
-  { t: "Premium Renovation", d: "Surgical upgrades to historical and modern buildings with zero compromise on finish.", i: "construction" },
-  { t: "Landscape Design", d: "Site planning that treats the ground plane as part of the architecture.", i: "park" },
-  { t: "Custom Fabrication", d: "Bespoke metalwork, joinery and stone — fabricated in-house, installed by us.", i: "build" },
+  { t: "Commercial Construction", d: "State-of-the-art commercial buildings designed for modern business needs with sustainable practices.", i: "business" },
+  { t: "Residential Development", d: "Luxury residential projects that combine comfort, elegance, and innovative design.", i: "home" },
+  { t: "Project Management", d: "Single-point delivery, covering schedule, cost, scope and quality, owned end to end.", i: "assignment" },
+  { t: "Infrastructure", d: "Large-scale infrastructure projects that shape communities and drive progress.", i: "foundation" },
+  { t: "Renovation & Restoration", d: "Expert renovation services that breathe new life into existing structures.", i: "construction" },
+  { t: "Design & Planning", d: "Innovative architectural design and meticulous planning for successful projects.", i: "architecture" },
+  { t: "Consultancy", d: "Professional consultancy services guiding your projects from inception to completion, ensuring efficiency and compliance.", i: "groups" },
 ];
 
 const process = [
