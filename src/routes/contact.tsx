@@ -2,16 +2,31 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { BlurText, Reveal, MagneticButton, SpotlightCard } from "@/components/anim";
 
+const SITE_URL = "https://menardsconstruction.com";
+const CONTACT_OG_IMG = "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&q=80";
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact | MENARDS Construction" },
-      { name: "description", content: "Start a project with Menards. Reach our team in Nairobi." },
-      { property: "og:title", content: "Contact | MENARDS" },
+      { title: "Contact Us | Get a Quote | Menards Construction Nairobi" },
+      { name: "description", content: "Contact Menards Construction in Nairobi, Kenya for a quote on commercial, residential or infrastructure projects. Call +254 710 792 208." },
+      { name: "keywords", content: "contact Menards Construction, construction quote Nairobi, Kenya contractor contact, construction company phone, hire builder Nairobi" },
+      { property: "og:title", content: "Contact Menards Construction | Nairobi, Kenya" },
+      { property: "og:description", content: "Start your project with Menards Construction — get a quote from our Nairobi team today." },
+      { property: "og:image", content: CONTACT_OG_IMG },
+      { property: "og:url", content: SITE_URL + "/contact" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Menards Construction" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact Menards Construction" },
+      { name: "twitter:description", content: "Get a quote from Menards Construction in Nairobi, Kenya." },
+      { name: "twitter:image", content: CONTACT_OG_IMG },
     ],
+    links: [{ rel: "canonical", href: SITE_URL + "/contact" }],
   }),
   component: Contact,
 });
+
 
 function Contact() {
   return (
