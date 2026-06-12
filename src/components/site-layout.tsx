@@ -182,7 +182,7 @@ export function Footer() {
           </div>
         </div>
         <div className="col-span-12 mt-16 border-t border-white/10 pt-8 text-center text-xs text-white/40">
-          © 2026 Menards Construction. Building Dreams, Brick At A Time.
+          © {new Date().getFullYear()} Menards Construction. All rights reserved.
         </div>
       </div>
 
