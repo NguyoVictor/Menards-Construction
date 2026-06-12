@@ -79,12 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MENARDS | Architectural Excellence" },
-      { name: "description", content: "Menards Construction — building dreams, brick at a time. Premium commercial, residential and infrastructure construction." },
-      { property: "og:title", content: "MENARDS | Architectural Excellence" },
-      { property: "og:description", content: "Premium architecture and construction in East Africa." },
+      { name: "robots", content: "index, follow" },
+      { name: "author", content: "Menards Construction" },
+      { property: "og:site_name", content: "Menards Construction" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@menardsconstruction" },
+      // Google Search Console verification placeholder — replace content with your token
+      { name: "google-site-verification", content: "REPLACE_WITH_SEARCH_CONSOLE_TOKEN" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -99,7 +101,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap",
       },
     ],
+    scripts: [
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-CEQRZLR7ZK",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-CEQRZLR7ZK');`,
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
