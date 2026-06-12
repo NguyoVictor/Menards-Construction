@@ -4,16 +4,31 @@ import { BlurText, Reveal, Stagger, StaggerItem, TiltCard, motion } from "@/comp
 import { CtaBanner } from "./index";
 import { useState } from "react";
 
+const SITE_URL = "https://menardsconstruction.com";
+const PROJECTS_OG_IMG = "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2000&q=80";
+
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects | MENARDS Construction" },
-      { name: "description", content: "Featured architectural projects across commercial, residential, infrastructure and renovation." },
-      { property: "og:title", content: "Projects | MENARDS" },
+      { title: "Our Projects | Featured Construction Work | Menards Construction" },
+      { name: "description", content: "Browse featured Menards Construction projects across commercial, residential, infrastructure and renovation in Kenya." },
+      { name: "keywords", content: "Menards construction projects, Kenya construction portfolio, commercial buildings Nairobi, residential projects, infrastructure work, renovation portfolio" },
+      { property: "og:title", content: "Our Projects | Menards Construction" },
+      { property: "og:description", content: "Featured construction projects by Menards across commercial, residential, infrastructure and renovation in Kenya." },
+      { property: "og:image", content: PROJECTS_OG_IMG },
+      { property: "og:url", content: SITE_URL + "/projects" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Menards Construction" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Our Projects | Menards Construction" },
+      { name: "twitter:description", content: "Featured construction projects by Menards Construction in Kenya." },
+      { name: "twitter:image", content: PROJECTS_OG_IMG },
     ],
+    links: [{ rel: "canonical", href: SITE_URL + "/projects" }],
   }),
   component: Projects,
 });
+
 
 type Cat = "All" | "Commercial" | "Residential" | "Infrastructure" | "Renovation";
 
