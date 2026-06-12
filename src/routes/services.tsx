@@ -3,16 +3,31 @@ import { SiteLayout } from "@/components/site-layout";
 import { BlurText, Reveal, Stagger, StaggerItem, SpotlightCard, MagneticButton } from "@/components/anim";
 import { CtaBanner } from "./index";
 
+const SITE_URL = "https://menardsconstruction.com";
+const SERVICES_OG_IMG = "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&q=80";
+
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services | MENARDS Construction" },
-      { name: "description", content: "Architectural design, structural engineering, project management, premium renovation and more." },
-      { property: "og:title", content: "Services | MENARDS" },
+      { title: "Construction Services | Commercial, Residential & Infrastructure | Menards" },
+      { name: "description", content: "Menards Construction services in Kenya — commercial, residential, infrastructure, renovation, project management and architectural design." },
+      { name: "keywords", content: "construction services Kenya, commercial construction Nairobi, residential construction, infrastructure projects, renovation, project management, architectural design" },
+      { property: "og:title", content: "Construction Services | Menards Construction" },
+      { property: "og:description", content: "Commercial, residential and infrastructure construction services delivered with precision in Nairobi, Kenya." },
+      { property: "og:image", content: SERVICES_OG_IMG },
+      { property: "og:url", content: SITE_URL + "/services" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Menards Construction" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Construction Services | Menards Construction" },
+      { name: "twitter:description", content: "Commercial, residential and infrastructure construction services in Nairobi, Kenya." },
+      { name: "twitter:image", content: SERVICES_OG_IMG },
     ],
+    links: [{ rel: "canonical", href: SITE_URL + "/services" }],
   }),
   component: Services,
 });
+
 
 const services = [
   { t: "Architectural Design", d: "Conceptual through construction documentation with a relentless focus on materiality.", i: "draw" },
