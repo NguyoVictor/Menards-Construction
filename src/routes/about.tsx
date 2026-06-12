@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { BlurText, Reveal, Stagger, StaggerItem, CountUp, SpotlightCard } from "@/components/anim";
 import { CtaBanner } from "./index";
-import simonImg from "@/assets/simon-migwi.jpg.asset.json";
-import chrisImg from "@/assets/chris-emmanuel.jpg.asset.json";
+import simonImg from "@/assets/simon-migwi.jpg";
+import chrisImg from "@/assets/chris-emmanuel.jpg";
 
 const SITE_URL = "https://menardsconstruction.com";
 const ABOUT_OG_IMG = "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2000&q=80";
@@ -38,8 +38,8 @@ const values = [
 ];
 
 const team = [
-  { n: "Simon Migwi", r: "Quantity Surveyor & Project Manager", b: "With over years in construction, Simon founded the company with a vision of excellence.", img: simonImg.url },
-  { n: "Chris Emmanuel", r: "Architect", b: "With a strong architectural background, Chris Emmanuel brings design precision and innovation to every Menards Construction project.", img: chrisImg.url },
+  { n: "Simon Migwi", r: "Quantity Surveyor & Project Manager", b: "With over years in construction, Simon founded the company with a vision of excellence.", img: simonImg },
+  { n: "Chris Emmanuel", r: "Architect", b: "With a strong architectural background, Chris Emmanuel brings design precision and innovation to every Menards Construction project.", img: chrisImg },
 ];
 
 function About() {
