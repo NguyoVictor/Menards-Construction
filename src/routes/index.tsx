@@ -16,19 +16,58 @@ import {
   CountUp,
 } from "@/components/anim";
 
+const SITE_URL = "https://menardsconstruction.com";
+const HOME_OG_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuDWBE7AGC6DBdgeJYbDkAReBHtmjpnyUuJZHw1WmGCrEU5lCbalzIWGoPcqbcg1XGYOHwR472Uf4Nswm6vFskcYA2Q-QvARPfEjPIzYeRSJmLX_EsS--z5aC8g3evR7H9xL2ZqEPTQiVzz68qQxSMiN8Z_sC3NhpB69bZaIJGsK9L5XwHofeoIOtRudSQXmq1QP8HiH1zmpuuF6p9yzW0YPZIDTy8VGgT6bPT3RnsnU5KsuCAEi6KTc1NWz1Mra1ICZPzz78gmpQtgq";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MENARDS | Architectural Excellence" },
-      { name: "description", content: "Building dreams brick at a time — premium architecture, construction and infrastructure." },
-      { property: "og:title", content: "MENARDS | Architectural Excellence" },
-      { property: "og:image", content: "https://lh3.googleusercontent.com/aida-public/AB6AXuDWBE7AGC6DBdgeJYbDkAReBHtmjpnyUuJZHw1WmGCrEU5lCbalzIWGoPcqbcg1XGYOHwR472Uf4Nswm6vFskcYA2Q-QvARPfEjPIzYeRSJmLX_EsS--z5aC8g3evR7H9xL2ZqEPTQiVzz68qQxSMiN8Z_sC3NhpB69bZaIJGsK9L5XwHofeoIOtRudSQXmq1QP8HiH1zmpuuF6p9yzW0YPZIDTy8VGgT6bPT3RnsnU5KsuCAEi6KTc1NWz1Mra1ICZPzz78gmpQtgq" },
+      { title: "Menards Construction | Construction Company in Nairobi, Kenya" },
+      { name: "description", content: "Menards Construction is a premier construction company in Nairobi, Kenya delivering commercial, residential and infrastructure projects with precision." },
+      { name: "keywords", content: "construction company Nairobi, Kenya construction, commercial construction, residential construction, infrastructure, building contractor Kenya, Menards Construction" },
+      { property: "og:title", content: "Menards Construction | Construction Company in Nairobi, Kenya" },
+      { property: "og:description", content: "Premier construction company in Nairobi, Kenya — commercial, residential and infrastructure projects, built with precision and integrity." },
+      { property: "og:image", content: HOME_OG_IMG },
+      { property: "og:url", content: SITE_URL + "/" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Menards Construction" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Menards Construction | Construction Company in Nairobi, Kenya" },
+      { name: "twitter:description", content: "Premier construction company in Nairobi, Kenya — commercial, residential and infrastructure projects." },
+      { name: "twitter:image", content: HOME_OG_IMG },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "ConstructionContractor"],
+          name: "Menards Construction",
+          description: "Premium construction company in Nairobi Kenya specializing in commercial, residential and infrastructure projects",
+          url: SITE_URL,
+          telephone: "+254710792208",
+          email: "Menardscontractorsltd@gmail.com",
+          image: HOME_OG_IMG,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Nairobi",
+            addressCountry: "KE",
+          },
+          openingHours: ["Mo-Fr 08:00-18:00", "Sa 09:00-14:00"],
+          sameAs: [
+            "https://www.instagram.com/menardsconstruction",
+            "https://www.tiktok.com/@menardsconstruction",
+          ],
+        }),
+      },
     ],
   }),
   component: Home,
 });
 
-const HERO_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuDWBE7AGC6DBdgeJYbDkAReBHtmjpnyUuJZHw1WmGCrEU5lCbalzIWGoPcqbcg1XGYOHwR472Uf4Nswm6vFskcYA2Q-QvARPfEjPIzYeRSJmLX_EsS--z5aC8g3evR7H9xL2ZqEPTQiVzz68qQxSMiN8Z_sC3NhpB69bZaIJGsK9L5XwHofeoIOtRudSQXmq1QP8HiH1zmpuuF6p9yzW0YPZIDTy8VGgT6bPT3RnsnU5KsuCAEi6KTc1NWz1Mra1ICZPzz78gmpQtgq";
+const HERO_IMG = HOME_OG_IMG;
+
 
 const ABOUT_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuBgwiz4ln9vPcYufOv-jRwaK3bK0r76vww6Afje6N3s0X3Q8k0t1cW94Yh40BNy4QcLu4uInYDt4vOV9mqYyoD1ig1s2r2jNF4k6aoNhBks6xi6q8Z7MfWtot9KcSoOp0Ly6uBljrS57Hh_UitkL84p89_8v9wv6hE8lBZrGZeUPi4koXDuqrsmbhQkZPZNgpgNINFD6kl6xTemUfDpW5-vIrpPbiZz0pwywn32at55SKaImd05hgfGmbmHhYmeXfeojP7zoVzvvq2T";
 

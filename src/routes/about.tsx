@@ -5,16 +5,31 @@ import { CtaBanner } from "./index";
 import simonImg from "@/assets/simon-migwi.jpg.asset.json";
 import chrisImg from "@/assets/chris-emmanuel.jpg.asset.json";
 
+const SITE_URL = "https://menardsconstruction.com";
+const ABOUT_OG_IMG = "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2000&q=80";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | MENARDS Construction" },
-      { name: "description", content: "Our story — building tomorrow's landmarks today with uncompromising precision and artistic integrity." },
-      { property: "og:title", content: "About | MENARDS" },
+      { title: "About Us | Menards Construction | Building Dreams Brick At A Time" },
+      { name: "description", content: "Learn about Menards Construction — a Nairobi-based construction company building dreams brick at a time with precision, integrity and craftsmanship." },
+      { name: "keywords", content: "about Menards Construction, construction company Kenya, Nairobi contractors, Simon Migwi, Chris Emmanuel, building company Kenya" },
+      { property: "og:title", content: "About Us | Menards Construction" },
+      { property: "og:description", content: "Building dreams brick at a time — meet the team behind Menards Construction in Nairobi, Kenya." },
+      { property: "og:image", content: ABOUT_OG_IMG },
+      { property: "og:url", content: SITE_URL + "/about" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Menards Construction" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Us | Menards Construction" },
+      { name: "twitter:description", content: "Meet the team behind Menards Construction — building dreams brick at a time in Nairobi, Kenya." },
+      { name: "twitter:image", content: ABOUT_OG_IMG },
     ],
+    links: [{ rel: "canonical", href: SITE_URL + "/about" }],
   }),
   component: About,
 });
+
 
 const values = [
   { i: "precision_manufacturing", t: "Uncompromising Precision", d: "Every joint, every line, every angle is engineered to surpass industry standards." },
