@@ -4,13 +4,17 @@ import { SiteLayout } from "@/components/site-layout";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms of Service | MENARDS Construction" },
+      { title: "Terms of Service | Menards Construction" },
       { name: "description", content: "Terms of Service governing your use of the Menards Construction website." },
-      { property: "og:title", content: "Terms of Service | MENARDS" },
+      { property: "og:title", content: "Terms of Service | Menards Construction" },
+      { property: "og:description", content: "Terms of Service for Menards Construction." },
+      { property: "og:url", content: "https://menardsconstruction.com/terms" },
     ],
+    links: [{ rel: "canonical", href: "https://menardsconstruction.com/terms" }],
   }),
   component: Terms,
 });
+
 
 function Terms() {
   return (
