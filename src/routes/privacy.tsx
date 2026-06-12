@@ -4,13 +4,17 @@ import { SiteLayout } from "@/components/site-layout";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy | MENARDS Construction" },
+      { title: "Privacy Policy | Menards Construction" },
       { name: "description", content: "How Menards Construction collects, uses, and safeguards your personal information." },
-      { property: "og:title", content: "Privacy Policy | MENARDS" },
+      { property: "og:title", content: "Privacy Policy | Menards Construction" },
+      { property: "og:description", content: "Privacy Policy for Menards Construction." },
+      { property: "og:url", content: "https://menardsconstruction.com/privacy" },
     ],
+    links: [{ rel: "canonical", href: "https://menardsconstruction.com/privacy" }],
   }),
   component: Privacy,
 });
+
 
 function Privacy() {
   return (
