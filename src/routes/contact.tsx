@@ -47,8 +47,8 @@ function Contact() {
                 <p className="mt-2">+254 710 792 208</p>
               </div>
               <div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--primary)]">Office</div>
-                <p className="mt-2">Nairobi, Kenya</p>
+                <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--primary)]">{"\n"}</div>
+                <p className="mt-2">{"\n"}</p>
               </div>
             </div>
           </Reveal>

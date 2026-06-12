@@ -178,7 +178,7 @@ export function Footer() {
           <div className="space-y-3 text-sm text-white/60">
             <p>menardscontractorsltd@gmail.com</p>
             <p>+254 710 792 208</p>
-            <p>Nairobi, Kenya</p>
+            <p>{"\n"}</p>
           </div>
         </div>
         <div className="col-span-12 mt-16 border-t border-white/10 pt-8 text-center text-xs text-white/40">
