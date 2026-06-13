@@ -1,15 +1,13 @@
 {
-  "redirects": [
+  "headers": [
     {
-      "source": "/:path*",
-      "has": [
+      "source": "/(.*)",
+      "headers": [
         {
-          "type": "host",
-          "value": "www.menardsconstruction.com"
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         }
-      ],
-      "destination": "https://menardsconstruction.com/:path*",
-      "permanent": true
+      ]
     }
   ]
 }
