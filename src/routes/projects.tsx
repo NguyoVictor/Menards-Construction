@@ -145,6 +145,21 @@ const projects: Project[] = [
 
 const cats: Cat[] = ["All", "Commercial", "Residential", "Renovation"];
 
+function LightboxVideo({ src }: { src: string }) {
+  return (
+    <video
+      key={src}
+      src={src}
+      controls
+      playsInline
+      autoPlay
+      muted
+      controlsList="novolume"
+      className="max-h-full max-w-full"
+    />
+  );
+}
+
 function Lightbox({
   project,
   onClose,
@@ -212,13 +227,7 @@ function Lightbox({
             className="max-h-full max-w-full object-contain"
           />
         ) : (
-          <video
-            key={current.src}
-            src={current.src}
-            controls
-            autoPlay
-            className="max-h-full max-w-full"
-          />
+          <LightboxVideo key={current.src} src={current.src} />
         )}
         <button
           onClick={prev}

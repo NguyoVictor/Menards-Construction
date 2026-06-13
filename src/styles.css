@@ -94,3 +94,11 @@
   body { cursor: none; }
   a, button, [data-cursor-hover] { cursor: none; }
 }
+
+/* Hide video mute button and volume controls */
+video::-webkit-media-controls-mute-button {
+  display: none !important;
+}
+video::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
