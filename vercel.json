@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.menardsconstruction.com"
+        }
+      ],
+      "destination": "https://menardsconstruction.com/:path*",
+      "permanent": true
+    }
+  ]
+}
